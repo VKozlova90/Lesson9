@@ -1,4 +1,4 @@
-public class Person <T> {
+public class Person {
 
         private Object name;
         private Object lastName;
@@ -10,27 +10,27 @@ public class Person <T> {
         this.address = address;
     }
 
-    public T getname() {
-        return (T) name;
+    public Object getName() {
+        return name;
     }
 
-    public void setname(T name) {
+    public void setName(Object name) {
         this.name = name;
     }
 
-    public T getlastName() {
-        return (T) lastName;
+    public Object getLastName() {
+        return lastName;
     }
 
-    public void setlastName(T lastName) {
+    public void setLastName(Object lastName) {
         this.lastName = lastName;
     }
 
-    public Address getaddress() {
-        return (Address) address;
+    public Address getAddress() {
+        return address;
     }
 
-    public void setaddress(Address address) {
+    public void setAddress(Address address) {
         this.address = address;
     }
 
@@ -42,4 +42,6 @@ public class Person <T> {
                 ", address=" + address +
                 '}';
     }
+
+
 }

@@ -1,4 +1,4 @@
-public class Address <T> {
+public class Address {
 
     private Object city;
     private Object street;
@@ -10,31 +10,28 @@ public class Address <T> {
         this.number = number;
     }
 
-    public T getcity() {
-        return (T) city;
+    public Object getCity() {
+        return city;
     }
 
-    public void setcity(T city) {
+    public void setCity(Object city) {
         this.city = city;
     }
 
-    public T getstreet() {
-        return (T) street;
+    public Object getStreet() {
+        return street;
     }
 
-    public void setstreet(T street) {
+    public void setStreet(Object street) {
         this.street = street;
     }
 
-    public int getnumber() {
+    public int getNumber() {
         return number;
     }
 
-    public void setnumber(int number) {
+    public void setNumber(int number) {
         this.number = number;
     }
-
-
-
 }
 
