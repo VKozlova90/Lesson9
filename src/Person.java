@@ -1,28 +1,28 @@
 public class Person {
 
-        private Object name;
-        private Object lastName;
+        private String name;
+        private String lastName;
         private Address address;
 
-    public Person(Object name, Object lastName, Address address) {
+    public Person(String name, String lastName, Address address) {
         this.name = name;
         this.lastName = lastName;
         this.address = address;
     }
 
-    public Object getName() {
+    public String getName() {
         return name;
     }
 
-    public void setName(Object name) {
+    public void setName(String name) {
         this.name = name;
     }
 
-    public Object getLastName() {
+    public String getLastName() {
         return lastName;
     }
 
-    public void setLastName(Object lastName) {
+    public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
