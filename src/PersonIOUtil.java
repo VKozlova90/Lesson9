@@ -4,7 +4,9 @@ import java.util.List;
 
 public class PersonIOUtil {
 
-    public class writePersons {
+    public PersonIOUtil(List<Person> persons, String s) {
+
+    public static class writePersons {
         private List <Person> persons;
         private String filepath;
 
@@ -16,29 +18,34 @@ public class PersonIOUtil {
         public void writeToFile() throws IOException {
             try (FileWriter writer = new FileWriter(filepath)) {
 
-                for (Person person: persons){
+                for (Person person : persons) {
                     String s = PersonIOUtil.writePersons(person);
                     writer.write(s);
                 }
+            }
+        }
 
 
 
-
-
-            public static String writePersons (Person person){
-
-        return person.getName() + ";" + person.getLastName() + ";" + person.getAddress() + "\n";
+        return person.getName() + ";" + person.getLastName() + ";" + Address.getCity()+ ";"
+                + Address.getStreet() + ";" + Address.getNumber() + "\n";
     }
 
-    public static Person readPersons (String s){
-        String [] fields = s.split(";");
 
-        String name = fields [0];
-        String lastName = fields [1];
-        String address = fields [2];
 
-        return new Person(name, lastName, address);
 
+
+//
+//
+////
+public static Person readPersons (String s){
+ String [] fields = s.split(";");
+
+String name = fields [0];
+String lastName = fields [1];
+String address = fields [2];
+return new Person(name, lastName, address);
+//
     }
 
 }

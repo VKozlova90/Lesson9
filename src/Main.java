@@ -7,20 +7,7 @@ import java.util.List;
 
 public class Main {
 
-    public static void main(String[] args) {
-
-//        Person person = new Person("A", "B", new Address("C", "D", 1));
-//        Person person1 = new Person("A1", "B1", new Address("C1", "D1", 2));
-//        Person person2= new Person("A2", "B2", new Address("C2", "D2", 3));
-//
-//        ArrayList<Person> list = new ArrayList<>();
-//        list.add (person);
-//        list.add (person1);
-//        list.add (person2);
-//
-//        System.out.println(list.get(0));
-//        System.out.println(list.get(1));
-//        System.out.println(list.get(2));
+    public static void main(String[] args) throws IOException {
 
         List<Person> persons = new ArrayList<>();
         persons.add(new Person("A", "B", new Address("C", "D", 1)));
