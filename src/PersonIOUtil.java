@@ -1,51 +1,60 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class PersonIOUtil {
 
-    public PersonIOUtil(List<Person> persons, String s) {
+    private List<Person> persons;
+    private String filepath;
 
-    public static class writePersons {
-        private List <Person> persons;
-        private String filepath;
+    public PersonIOUtil(List<Person> persons, String filepath) {
+        this.persons = persons;
+        this.filepath = filepath;
+    }
 
-        public writePersons(List<Person> persons, String filepath) {
-            this.persons = persons;
-            this.filepath = filepath;
-        }
+    public static void writePersons(List<Person> persons, String filepath) {
+        try (FileWriter writer = new FileWriter(filepath)) {
 
-        public void writeToFile() throws IOException {
-            try (FileWriter writer = new FileWriter(filepath)) {
-
-                for (Person person : persons) {
-                    String s = PersonIOUtil.writePersons(person);
-                    writer.write(s);
-                }
+            for (Person person : persons) {
+                Address address;
+                String s = person.getName() + ";" + person.getLastName() + ";" + address.getCity() +
+                        ";" + address.getStreet() + ";" + address.getNumber() + "\n";
+                writer.write(s);
             }
+        } catch (IOException e) {
+            System.out.println("Запись в файл не удалась");
         }
-
-
-
-        return person.getName() + ";" + person.getLastName() + ";" + Address.getCity()+ ";"
-                + Address.getStreet() + ";" + Address.getNumber() + "\n";
     }
 
-
-
-
-
-//
-//
-////
-public static Person readPersons (String s){
- String [] fields = s.split(";");
-
-String name = fields [0];
-String lastName = fields [1];
-String address = fields [2];
-return new Person(name, lastName, address);
-//
+    public PersonIOUtil(String filepath) {
+        this.filepath = filepath;
     }
 
+    public List<Person> readPersons() {
+        List<Person> result = new ArrayList<>();
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(filepath))) {
+            String s;
+            while ((s = reader.readLine()) != null) {
+
+                String[] fields = s.split(";");
+                String name = fields[0];
+                String lastName = fields[1];
+                String city = fields[2];
+                String street = fields[3];
+                int number = Integer.parseInt(fields[4]);
+                return new Person (name; lastName; city; street; number);
+
+            }
+            System.out.println(person);
+
+            result.add(person);
+        } catch (IOException e) {
+            System.out.println("Чтение не удалось");
+        }
+        return result;
+    }
 }

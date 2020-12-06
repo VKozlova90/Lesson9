@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
+    private final static String FILE_NAME = "person.csv";
 
     public static void main(String[] args) throws IOException {
 
@@ -16,20 +17,13 @@ public class Main {
 
         System.out.println(persons);
 
+        PersonIOUtil personIOUtil = new PersonIOUtil (persons, FILE_NAME);
+        PersonIOUtil.writePersons();
 
 
-        try (BufferedReader reader = new BufferedReader(new FileReader("person.csv"))) {
-            String s;
-            while ((s= reader.readLine()) !=null){
-                Person person = PersonIOUtil.readPersons(s);
-
-                System.out.println(person);
-            }
-
-        }catch (IOException e) {
-            e.printStackTrace();
-        }
-
+        personIOUtil = new PersonIOUtil(FILE_NAME);
+        List<Person> readPersons= personIOUtil.readPersons();
+        System.out.println(readPersons);
 
     }
 }

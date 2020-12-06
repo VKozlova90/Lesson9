@@ -10,7 +10,7 @@ public class Address {
         this.number = number;
     }
 
-    public static String getCity() {
+    public String getCity() {
         return city;
     }
 
@@ -18,7 +18,7 @@ public class Address {
         this.city = city;
     }
 
-    public static String getStreet() {
+    public String getStreet() {
         return street;
     }
 
@@ -26,7 +26,7 @@ public class Address {
         this.street = street;
     }
 
-    public static int getNumber() {
+    public int getNumber() {
         return number;
     }
 

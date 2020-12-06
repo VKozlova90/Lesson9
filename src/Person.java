@@ -1,8 +1,8 @@
 public class Person {
 
-        private String name;
-        private String lastName;
-        private Address address;
+    private String name;
+    private String lastName;
+    private Address address;
 
     public Person(String name, String lastName, Address address) {
         this.name = name;
@@ -43,3 +43,4 @@ public class Person {
                 '}';
     }
 }
+
