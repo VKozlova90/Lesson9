@@ -17,13 +17,12 @@ public class Main {
 
         System.out.println(persons);
 
-        PersonIOUtil personIOUtil = new PersonIOUtil (persons, FILE_NAME);
-        PersonIOUtil.writePersons();
 
+        PersonIOUtil.writePersons(persons, FILE_NAME);
 
-        personIOUtil = new PersonIOUtil(FILE_NAME);
-        List<Person> readPersons= personIOUtil.readPersons();
-        System.out.println(readPersons);
+        PersonIOUtil.readPersons(FILE_NAME);
+//        List<Person> readPersons= personIOUtil.readPersons();
+//        System.out.println(readPersons);
 
     }
 }

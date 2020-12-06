@@ -15,13 +15,31 @@ public class PersonIOUtil {
         this.filepath = filepath;
     }
 
+    public static String FormatAddressForWriting (Address address){
+        return address.getCity()+ ";"+ address.getStreet()+ ";"+address.getNumber();
+    }
+    public static String FormatPersonForWriting (Person person) {
+        return person.getName() + ";" + person.getLastName() + ";" +
+                FormatAddressForWriting(person.getAddress()) + "\n";
+    }
+
+    public static Person FormatObject (String s){
+
+        String[] fields = s.split(";");
+        String name = fields[0];
+        String lastName = fields[1];
+        String city = fields[2];
+        String street = fields[3];
+        int number = Integer.parseInt(fields[4]);
+        return new Person (name, lastName, city, street, number);
+
+    }
+
     public static void writePersons(List<Person> persons, String filepath) {
         try (FileWriter writer = new FileWriter(filepath)) {
 
             for (Person person : persons) {
-                Address address;
-                String s = person.getName() + ";" + person.getLastName() + ";" + address.getCity() +
-                        ";" + address.getStreet() + ";" + address.getNumber() + "\n";
+                String s = PersonIOUtil.FormatPersonForWriting(person);
                 writer.write(s);
             }
         } catch (IOException e) {
@@ -33,28 +51,20 @@ public class PersonIOUtil {
         this.filepath = filepath;
     }
 
-    public List<Person> readPersons() {
+    public static void  readPersons(String filepath) {
         List<Person> result = new ArrayList<>();
 
         try (BufferedReader reader = new BufferedReader(new FileReader(filepath))) {
             String s;
             while ((s = reader.readLine()) != null) {
+                Person person = PersonIOUtil.FormatObject(s);
+                System.out.println(person);
 
-                String[] fields = s.split(";");
-                String name = fields[0];
-                String lastName = fields[1];
-                String city = fields[2];
-                String street = fields[3];
-                int number = Integer.parseInt(fields[4]);
-                return new Person (name; lastName; city; street; number);
-
+                result.add(person);
             }
-            System.out.println(person);
-
-            result.add(person);
         } catch (IOException e) {
             System.out.println("Чтение не удалось");
         }
-        return result;
     }
+
 }
